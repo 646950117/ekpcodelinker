@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         id="com.landray.plugin.codelinker.log"
+         point="org.eclipse.ui.console.consoleFactories"
+         class="com.landray.plugin.codelinker.log.LinkerLogger">
+   </extension>
+	<extension
+         point="org.eclipse.ui.actionSets">
+         <actionSet
+         	id="com.landray.plugin.codelinker.actionSet"
+         	label="EKPCodeLinker操作集"
+         	visible="true">
+         	<menu
+         		id="com.landray.plugin.codelinker.mainMenu"
+         		label="EKPCodeLinker">
+         		<separator
+					name="actionsSeparator">
+				</separator>
+			</menu>
+			<action
+				id="com.landray.plugin.codelinker.del.unuseful"
+				label="无用文件"
+				menubarPath="com.landray.plugin.codelinker.mainMenu/actionsSeparator"
+				style="push"
+				class="com.landray.plugin.codelinker.action.UnusefulAction">
+			</action>
+			<action
+				id="com.landray.plugin.codelinker.clear"
+				label="清空项目"
+				menubarPath="com.landray.plugin.codelinker.mainMenu/actionsSeparator"
+				style="push"
+				class="com.landray.plugin.codelinker.action.ClearAction">
+			</action>
+			<action
+				id="com.landray.plugin.codelinker.sync"
+				label="刷新项目"
+				menubarPath="com.landray.plugin.codelinker.mainMenu/actionsSeparator"
+				style="push"
+				class="com.landray.plugin.codelinker.action.SyncAction">
+			</action>
+			<action
+				id="com.landray.plugin.codelinker.linker"
+				label="组装项目"
+				menubarPath="com.landray.plugin.codelinker.mainMenu/actionsSeparator"
+				style="push"
+				class="com.landray.plugin.codelinker.action.LinkerAction">
+			</action>
+         </actionSet>
+   </extension>
+   <extension
+         point="org.eclipse.ui.startup">
+         <startup class="com.landray.plugin.codelinker.Startup"></startup>
+   </extension>
+</plugin>
