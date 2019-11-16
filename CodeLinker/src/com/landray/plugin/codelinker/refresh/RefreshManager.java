@@ -120,6 +120,7 @@ public class RefreshManager extends Thread {
 						build, buildType, afterRefreshed);
 				first.project.refreshLocal(IProject.DEPTH_INFINITE, progressMonitor);
 				if (!progressMonitor.isDone()) {
+					LinkerLogger.log("manual done", "file");
 					progressMonitor.done();
 				}
 			} else {
