@@ -14,7 +14,7 @@ public abstract class ProgressMonitorAdapter implements IProgressMonitorAdapter 
 
 	@Override
 	public void beginTask(String arg0, int arg1) {
-		LinkerLogger.log(getStartHint());
+		LinkerLogger.log(getStartHint(), "file");
 		ListenersProvider.removeListener(ListenersProvider.RESOURCE_CHANGE);
 	}
 
@@ -32,7 +32,7 @@ public abstract class ProgressMonitorAdapter implements IProgressMonitorAdapter 
 	@Override
 	public void done() {
 		done = true;
-		LinkerLogger.log(getEndHint());
+		LinkerLogger.log(getEndHint(), "file");
 		childDone(new ISyncAction() {
 			@Override
 			public void doAction() {
